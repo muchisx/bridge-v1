@@ -5,28 +5,27 @@ import Layout from "../layouts/Layout.astro";
 import artPortrait from "@assets/images/portrait-art.jpg";
 import devPortrait from "@assets/images/portrait-dev.jpg";
 
-const img
+const imagePortraitStyles = "absolute inset-0 object-cover w-full h-full  -z-1 group-hover:scale-105 transition duration-300";
+const mainLinkStyles = "bg-white py-2.5 px-3.5 rounded border-gray-600 border-2";
 ---
 
 <Layout title="Miguel Ángel">
-  <main>
-    <div class="flex max-w-full h-full">
-      <div class="flex-1 overflow-hidden">
-        <Image
-          src={artPortrait}
-          alt={"art-portrait"}
-          class="object-cover w-full h-full opacity-25 hover:scale-105 hover:opacity-100 transition-all"
-        />
+  <main class="p-4 bg-neutral-900">
+    <div class="flex flex-col max-w-full h-full rounded-md overflow-hidden lg:flex-row">
+      <div class="group flex-1 overflow-hidden relative flex items-center isolate justify-center opacity-40 hover:opacity-100 transition duration-300">
+        <Image src={artPortrait} alt={"art-portrait"} class={imagePortraitStyles} />
+        <a href="https://art.miguelangel.pro/" class={mainLinkStyles}>Visit site</a>
       </div>
-      <div class="flex-1 overflow-hidden">
-        <Image
-          src={devPortrait}
-          alt={"dev-portrait"}
-          class="object-cover w-full h-full opacity-25 hover:scale-105 hover:opacity-100 transition-all"
-        />
+      <div class="group flex-1 overflow-hidden relative flex items-center isolate justify-center opacity-40 hover:opacity-100 transition duration-300">
+        <Image src={devPortrait} alt={"dev-portrait"} class={imagePortraitStyles} />
+        <a href="https://dev.miguelangel.pro/" class={mainLinkStyles}>Visit site</a>
       </div>
     </div>
   </main>
 </Layout>
 
-<style></style>
+<style>
+  asd {
+    color: #e5e7eb;
+  }
+</style>
