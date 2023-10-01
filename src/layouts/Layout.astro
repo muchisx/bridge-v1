@@ -1,4 +1,8 @@
 ---
+import satoshiRegular from "@assets/fonts/Satoshi-Regular.woff2";
+import satoshiMedium from "@assets/fonts/Satoshi-Medium.woff2";
+import satoshiBold from "@assets/fonts/Satoshi-Bold.woff2";
+
 interface Props {
   title: string;
 }
@@ -21,7 +25,38 @@ const { title } = Astro.props;
   </body>
 </html>
 
-<style is:global>
+<style
+  is:global
+  define:vars={{
+    satoshiRegularURL: `url("${satoshiRegular}")`,
+    satoshiMediumURL: `url("${satoshiMedium}")`,
+    satoshiBoldURL: `url("${satoshiBold}")`,
+  }}
+>
+  @font-face {
+    font-family: "Satoshi";
+    src: var(--satoshiRegularURL) format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Satoshi";
+    src: var(--satoshiMediumURL) format("woff2");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Satoshi";
+    src: var(--satoshiBoldURL) format("woff2");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+  }
+
   html,
   body {
     height: 100%;

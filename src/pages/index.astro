@@ -1,31 +1,46 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon";
 
 import artPortrait from "@assets/images/portrait-art.jpg";
 import devPortrait from "@assets/images/portrait-dev.jpg";
+import noiseImage from "@assets/images/broken_noise.png";
 
-const imagePortraitStyles = "absolute inset-0 object-cover w-full h-full  -z-1 group-hover:scale-105 transition duration-300";
-const mainLinkStyles = "bg-white py-2.5 px-3.5 rounded border-gray-600 border-2";
+const imageContainerStyles = "group flex-1 overflow-hidden relative flex items-center isolate justify-center opacity-40 hover:opacity-100 transition duration-300";
+const imagePortraitStyles = "absolute inset-0 object-cover w-full h-full -z-1 group-hover:scale-105 transition duration-300";
+const mainLinkStyles = "flex gap-2 items-center backdrop-blur-sm bg-black/40 py-5 px-8 rounded-md border-gray-600 border-1 text-2xl leading-none font-semibold font-sans text-center";
 ---
 
 <Layout title="Miguel Ángel">
-  <main class="p-4 bg-neutral-900">
-    <div class="flex flex-col max-w-full h-full rounded-md overflow-hidden lg:flex-row">
-      <div class="group flex-1 overflow-hidden relative flex items-center isolate justify-center opacity-40 hover:opacity-100 transition duration-300">
-        <Image src={artPortrait} alt={"art-portrait"} class={imagePortraitStyles} />
-        <a href="https://art.miguelangel.pro/" class={mainLinkStyles}>Visit site</a>
+  <main class="relative flex flex-col gap-4 p-4 bg-gradient-to-bl from-zinc-800 to-zinc-950 text-white">
+    <div class="absolute inset-0 bg-repeat x-bg-noise opacity-80"></div>
+
+    <header class="flex justify-center backdrop-blur-sm bg-gradient-to-tr from-zinc-900/40 border-white/15 border-1 rounded-md p-4">
+      <h1 class="text-xl w-fit font-semibold text-transparent bg-clip-text bg-gradient-to-tr from-zinc-600 to-zinc-100">MIGUEL ÁNGEL</h1>
+    </header>
+
+    <div class="flex flex-1 flex-col max-w-full rounded-md overflow-hidden lg:flex-row border-white/15 border-1">
+      <div class={imageContainerStyles}>
+        <Image src={artPortrait} alt={"art-portrait"} class={`${imagePortraitStyles} object-[center_26%]`} />
+        <!-- <a href="https://art.miguelangel.pro/" class={mainLinkStyles} target="_blank">Enter <br />ART World</a> -->
+        <a href="https://art.miguelangel.pro/" class={mainLinkStyles} target="_blank">ART WORLD<Icon name="fluent:open-16-filled" class="h-7" /></a>
       </div>
-      <div class="group flex-1 overflow-hidden relative flex items-center isolate justify-center opacity-40 hover:opacity-100 transition duration-300">
-        <Image src={devPortrait} alt={"dev-portrait"} class={imagePortraitStyles} />
-        <a href="https://dev.miguelangel.pro/" class={mainLinkStyles}>Visit site</a>
+      <div class={imageContainerStyles}>
+        <Image src={devPortrait} alt={"dev-portrait"} class={`${imagePortraitStyles} object-[88%]`} />
+        <a href="https://dev.miguelangel.pro/" class={mainLinkStyles} target="_blank">TECH WORLD<Icon name="fluent:open-16-filled" class="h-7" /></a>
       </div>
     </div>
   </main>
 </Layout>
 
-<style>
-  asd {
-    color: #e5e7eb;
+<style
+  is:global
+  define:vars={{
+    noiseImageURL: `url("${noiseImage.src}")`,
+  }}
+>
+  .x-bg-noise {
+    background-image: var(--noiseImageURL);
   }
 </style>
