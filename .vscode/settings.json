@@ -1,4 +1,7 @@
 {
   "editor.formatOnSave": true,
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass", ".*Styles"]
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", ".*Styles"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

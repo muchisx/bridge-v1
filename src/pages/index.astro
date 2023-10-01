@@ -7,28 +7,68 @@ import artPortrait from "@assets/images/portrait-art.jpg";
 import devPortrait from "@assets/images/portrait-dev.jpg";
 import noiseImage from "@assets/images/broken_noise.png";
 
-const imageContainerStyles = "group flex-1 overflow-hidden relative flex items-center isolate justify-center opacity-40 hover:opacity-100 transition duration-300";
-const imagePortraitStyles = "absolute inset-0 object-cover w-full h-full -z-1 group-hover:scale-105 transition duration-300";
-const mainLinkStyles = "flex gap-2 items-center backdrop-blur-sm bg-black/40 py-5 px-8 rounded-md border-gray-600 border-1 text-2xl leading-none font-semibold font-sans text-center";
+const imageContainerStyles =
+  "group flex-1 overflow-hidden relative flex items-center isolate justify-center \
+   opacity-40 hover:opacity-100 transition duration-300 \
+   first:animate-[flash_1s_cubic-bezier(0.4,0,0.2,1)_2] \
+   last:animate-[flash_1s_cubic-bezier(0.4,0,0.2,1)_500ms_2]";
+const imagePortraitStyles =
+  "absolute inset-0 object-cover w-full h-full -z-1 group-hover:scale-105 transition duration-300 \
+  group-first:animate-[pulseScale_1s_cubic-bezier(0.4,0,0.2,1)_2] \
+  group-last:animate-[pulseScale_1s_cubic-bezier(0.4,0,0.2,1)_500ms_2]";
+const mainLinkStyles =
+  "flex gap-2 items-center backdrop-blur-sm bg-black/40 py-5 px-8 rounded-md \
+   border-gray-600 border-1 text-2xl leading-none font-semibold font-sans text-center";
 ---
 
 <Layout title="Miguel Ángel">
-  <main class="relative flex flex-col gap-4 p-4 bg-gradient-to-bl from-zinc-800 to-zinc-950 text-white">
-    <div class="absolute inset-0 bg-repeat x-bg-noise opacity-80"></div>
+  <main
+    class="relative isolate flex flex-col gap-4 bg-gradient-to-bl from-zinc-800 to-zinc-950 p-4 text-white"
+  >
+    <div class="x-bg-noise 80 absolute inset-0 -z-1 bg-repeat"></div>
 
-    <header class="flex justify-center backdrop-blur-sm bg-gradient-to-tr from-zinc-900/40 border-white/15 border-1 rounded-md p-4">
-      <h1 class="text-xl w-fit font-semibold text-transparent bg-clip-text bg-gradient-to-tr from-zinc-600 to-zinc-100">MIGUEL ÁNGEL</h1>
+    <header
+      class="flex justify-center rounded-md border-1 border-white/15 bg-gradient-to-tr from-zinc-900 to-[#FFFFFF09] p-4"
+    >
+      <h1
+        class="w-fit bg-gradient-to-tr from-zinc-600 to-zinc-100 bg-clip-text text-xl font-semibold text-transparent"
+      >
+        MIGUEL ÁNGEL
+      </h1>
     </header>
 
-    <div class="flex flex-1 flex-col max-w-full rounded-md overflow-hidden lg:flex-row border-white/15 border-1">
+    <div
+      class="flex max-w-full flex-1 flex-col overflow-hidden rounded-md border-1 border-white/15 lg:flex-row"
+    >
       <div class={imageContainerStyles}>
-        <Image src={artPortrait} alt={"art-portrait"} class={`${imagePortraitStyles} object-[center_26%]`} />
-        <!-- <a href="https://art.miguelangel.pro/" class={mainLinkStyles} target="_blank">Enter <br />ART World</a> -->
-        <a href="https://art.miguelangel.pro/" class={mainLinkStyles} target="_blank">ART WORLD<Icon name="fluent:open-16-filled" class="h-7" /></a>
+        <Image
+          src={artPortrait}
+          alt={"art-portrait"}
+          class={`${imagePortraitStyles} object-[center_26%]`}
+        />
+        <a
+          href="https://art.miguelangel.pro/"
+          class={mainLinkStyles}
+          target="_blank"
+        >
+          ART WORLD
+          <Icon name="fluent:open-16-filled" class="h-7" />
+        </a>
       </div>
       <div class={imageContainerStyles}>
-        <Image src={devPortrait} alt={"dev-portrait"} class={`${imagePortraitStyles} object-[88%]`} />
-        <a href="https://dev.miguelangel.pro/" class={mainLinkStyles} target="_blank">TECH WORLD<Icon name="fluent:open-16-filled" class="h-7" /></a>
+        <Image
+          src={devPortrait}
+          alt={"dev-portrait"}
+          class={`${imagePortraitStyles} object-[88%]`}
+        />
+        <a
+          href="https://dev.miguelangel.pro/"
+          class={mainLinkStyles}
+          target="_blank"
+        >
+          TECH WORLD
+          <Icon name="fluent:open-16-filled" class="h-7" />
+        </a>
       </div>
     </div>
   </main>

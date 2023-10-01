@@ -1,4 +1,5 @@
-import * as defaultTheme from "tailwindcss/defaultTheme";
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -17,10 +18,26 @@ module.exports = {
         sans: ["Satoshi", ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
-        revealPulse: {
+        pulseScale: {
           "0%": {
             transform: "scale(1)",
-            opacity: 0,
+          },
+          "50%": {
+            transform: "scale(1.05)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
+        flash: {
+          "0%": {
+            opacity: 0.4,
+          },
+          "50%": {
+            opacity: 1,
+          },
+          "100%": {
+            opacity: 0.4,
           },
         },
       },
