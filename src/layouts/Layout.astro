@@ -3,6 +3,12 @@ import satoshiRegular from "@assets/fonts/Satoshi-Regular.woff2";
 import satoshiMedium from "@assets/fonts/Satoshi-Medium.woff2";
 import satoshiBold from "@assets/fonts/Satoshi-Bold.woff2";
 
+import appleTouchIcon from "@assets/favicons/apple-touch-icon.png";
+import favicon32 from "@assets/favicons/favicon-32x32.png";
+import favicon16 from "@assets/favicons/favicon-16x16.png";
+import safariPinnedTab from "@assets/favicons/safari-pinned-tab.svg";
+import faviconIco from "@assets/favicons/favicon.ico";
+
 interface Props {
   title: string;
 }
@@ -14,10 +20,18 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <link rel="apple-touch-icon" sizes="120x120" href={appleTouchIcon.src} />
+    <link rel="icon" type="image/png" sizes="32x32" href={favicon32.src} />
+    <link rel="icon" type="image/png" sizes="16x16" href={favicon16.src} />
+    <link rel="mask-icon" href={safariPinnedTab.src} color="#1d1f21" />
+    <link rel="shortcut icon" href={faviconIco} />
+    <meta name="msapplication-TileColor" content="#1d1f21" />
+    <meta name="theme-color" content="#1d1f21" />
+
+    <meta name="description" content="Miguel Ángel" />
     <title>{title}</title>
   </head>
   <body>
