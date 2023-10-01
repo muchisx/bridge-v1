@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -43,5 +44,15 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant("hocus", ["&:hover", "&:focus"]);
+      addVariant("hocus-within", ["&:hover", "&:focus-within"]);
+
+      addVariant("group-hocus-within", [
+        ":merge(.group):hover &",
+        ":merge(.group):focus-within &",
+      ]);
+    }),
+  ],
 };

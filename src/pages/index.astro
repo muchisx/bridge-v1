@@ -9,32 +9,35 @@ import noiseImage from "@assets/images/broken_noise.png";
 
 const imageContainerStyles =
   "group flex-1 overflow-hidden relative flex items-center isolate justify-center \
-   opacity-40 hover:opacity-100 transition duration-300 \
+   opacity-40 hocus-within:opacity-100 transition duration-300 \
    first:animate-[flash_1s_cubic-bezier(0.4,0,0.2,1)_2] \
    last:animate-[flash_1s_cubic-bezier(0.4,0,0.2,1)_500ms_2]";
 const imagePortraitStyles =
-  "absolute inset-0 object-cover w-full h-full -z-1 group-hover:scale-105 transition duration-300 \
+  "absolute inset-0 object-cover w-full h-full -z-1 group-hocus-within:scale-105 transition duration-300 \
   group-first:animate-[pulseScale_1s_cubic-bezier(0.4,0,0.2,1)_2] \
   group-last:animate-[pulseScale_1s_cubic-bezier(0.4,0,0.2,1)_500ms_2]";
 const mainLinkStyles =
-  "flex gap-2 items-center backdrop-blur-sm bg-black/40 py-5 px-8 rounded-md \
-   border-gray-600 border-1 text-2xl leading-none font-semibold font-sans text-center";
+  "flex gap-2 items-center backdrop-blur-sm bg-black/60 py-5 px-8 rounded-md \
+   border-gray-600 border-1 text-2xl leading-none font-semibold font-sans text-center \
+   hocus:bg-black/70 transition";
+
+const gradientTextStyles =
+  "w-fit bg-gradient-to-tr from-zinc-500 to-zinc-50 bg-clip-text text-transparent";
 ---
 
 <Layout title="Miguel Ángel">
   <main
-    class="relative isolate flex flex-col gap-4 bg-gradient-to-bl from-zinc-800 to-zinc-950 p-4 text-white"
+    class="relative isolate flex flex-col gap-4 bg-gradient-to-tr from-zinc-950 to-zinc-800 p-4 text-white"
   >
-    <div class="x-bg-noise 80 absolute inset-0 -z-1 bg-repeat"></div>
+    <div
+      class="x-bg-noise 80 absolute inset-0 -z-1 bg-[length:400px] bg-repeat"
+    >
+    </div>
 
     <header
-      class="flex justify-center rounded-md border-1 border-white/15 bg-gradient-to-tr from-zinc-900 to-[#FFFFFF09] p-4"
+      class="flex justify-center rounded-md border-1 border-white/15 bg-gradient-to-tr from-zinc-950/80 p-4"
     >
-      <h1
-        class="w-fit bg-gradient-to-tr from-zinc-600 to-zinc-100 bg-clip-text text-xl font-semibold text-transparent"
-      >
-        MIGUEL ÁNGEL
-      </h1>
+      <h1 class=`${gradientTextStyles} text-xl font-semibold`>MIGUEL ÁNGEL</h1>
     </header>
 
     <div
@@ -51,7 +54,8 @@ const mainLinkStyles =
           class={mainLinkStyles}
           target="_blank"
         >
-          ART WORLD
+          <span class=`${gradientTextStyles}`>ART</span>
+           WORLD
           <Icon name="fluent:open-16-filled" class="h-7" />
         </a>
       </div>
@@ -66,7 +70,8 @@ const mainLinkStyles =
           class={mainLinkStyles}
           target="_blank"
         >
-          TECH WORLD
+          <span class=`${gradientTextStyles}`>TECH</span>
+           WORLD
           <Icon name="fluent:open-16-filled" class="h-7" />
         </a>
       </div>
